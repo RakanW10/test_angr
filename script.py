@@ -14,3 +14,9 @@ state = proj.factory.entry_state(stdin=flag)
 sm = proj.factory.simulation_manager(state)
 
 sm.explore(find=0x258B, avoid=0x25A3)
+
+if sm.found:
+    for found in sm.found:
+        print(found.posix.dumps(0))
+else:
+    print("No solution found")
